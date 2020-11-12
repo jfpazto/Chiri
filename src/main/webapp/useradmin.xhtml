@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+ <h:head><title>Administer Computers</title>
+ 	<style type="text/css">
+ 		.my_test li{
+ 			display:inline;
+ 			padding:10px;
+ 			margin:10px;
+ 		}
+ 		.pers{
+ 			color:white; 
+ 			background:#1B8344;
+ 			font-weight: bolder;
+ 			padding:5px;
+ 			font-family:cursive;
+ 			margin:5px;	
+ 			width:100%;
+ 		}
+ 		.pers ul li{
+ 			padding:5px;
+ 			margin:5px;
+ 			
+ 		}
+ 		.temp{
+ 			font-size:20px;
+ 			
+ 		}
+ 		.menu{
+ 			margin:0px; 
+ 			padding:5px; 
+ 			background:#1B8344; 
+ 			width:100%;
+ 			font-family:cursive;
+ 		}
+ 		.opt ul li{
+ 			display:inline;
+ 			padding:10px;
+ 			
+ 			}
+ 		.ui-overlaypanel ul li{
+ 			display:block;
+ 			
+ 		}
+ 		.menunovedad ul li:hover{
+ 			background:	#1B783F;
+ 			padding:10px;
+ 			font-family:cursive;
+ 		}
+ 		.menulaboratorio ul li:hover{
+ 			padding:10px;
+ 			background:	#1B783F;
+ 			font-family:cursive;
+ 		}
+ 		.elementomenu ul li:hover{
+ 			background:	#1B783F;
+ 			padding:10px;
+ 			font-family:cursive;
+ 		}
+ 		.equipomenu ul li:hover{
+ 			padding:10px;
+ 			background:#1B783F;
+ 			font-family:cursive;
+ 			color : #136934
+ 		}
+ 	</style>
+ </h:head>
+ <h:body style="margin:0px; padding:0px;">
+ <img src="labinfo.jpg" style="width:250px;"></img>
+ 	<br></br>
+ 	<h:form>
+	<div class="menu">
+		<div class="opt">
+		<div>
+			<ul>
+				<li><p:commandLink id="Equipo" value="Equipo" style="color:white; background:#136934; padding:10px;" font-family="cursive;"></p:commandLink></li>
+				<li><p:commandLink id="Elemento" value="Elemento" style="color:white; background:#136934; padding:10px;"></p:commandLink></li>
+				<li><p:commandLink id="Laboratorio" value="Laboratorio" style="color:white; padding:10px; background:#136934;"></p:commandLink></li>
+				<li><p:commandLink id="Novedad" value="Novedad" style="color:white; padding:10px; background:#136934;"></p:commandLink></li>
+			</ul>
+			<p:overlayPanel for="Equipo" hideEffect="fade" style="background:#136934;" class="equipomenu">
+				<ul>
+					<li><a href="registreEquipo.xhtml" style="color:white;">Registrar Equipo</a></li>
+					<li><a href="asociarElemento.xhtml" style="color:white;">Asociar un elemento</a></li>
+					<li><a href="bajaEquipo.xhtml" style="color:white;">Dar de baja un equipo</a></li>
+					<li><a href="reporteEquipos.xhtml" style="color:white;">Reporte equipo.</a></li>
+				</ul>
+			</p:overlayPanel>
+			<p:overlayPanel for="Elemento" hideEffect="fade" style="background:#136934;;" class="elementomenu">
+				<ul>
+					<li><a href="registreElemento.xhtml" style="color:white;">Registrar Elemento</a></li>
+					<li><a href="bajaElemento.xhtml" style="color:white;">Dar de baja</a></li>
+					<li><a href="historialElemento.xhtml" style="color:white;">Historial de elementos</a></li>
+					<li><a href="reporteElementos.xhtml" style="color:white;">Reporte de Elementos</a></li>
+				</ul>
+			</p:overlayPanel>
+			<p:overlayPanel for="Laboratorio" hideEffect="fade" style="background:#136934;" class="menulaboratorio">
+				<ul>
+					<li><a href="registrarLaboratorio.xhtml" style="color:white;">Registrar Laboratorio</a></li>
+					<li><a href="asociarEquipo.xhtml" style="color:white;">Asociar Equipo</a></li>
+					<li><a href="reporteLaboratorios.xhtml" style="color:white;">Reporte de Laboratorios</a></li>
+					<li><a href="cerrarLaboratorio.xhtml" style="color:white;">Cerrar Laboratorio</a></li>
+					
+				</ul>
+			</p:overlayPanel>
+			<p:overlayPanel for="Novedad" hideEffect="fade" style="background:#136934;" class="menunovedad">
+				<ul>
+					<li><a href="novedad.xhtml" style="color:white;">Registrar Novedad</a></li>
+					<li><a href="novedadesEquipo.xhtml" style="color:white;">Ver novedades</a></li>
+				</ul>
+			</p:overlayPanel>
+		</div>
+			<div style="text-align:right;">
+				<ul class="my_test">
+					<li style="color:white;"><b>#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</b></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:gray;"></h:commandLink></li>
+				</ul>
+		</div>
+	</div>
+	</div>
+	</h:form>
+	<p:growl id="message" showDetail="true" sticky="true"/>
+	<br></br>
+	<div style="padding:10px;">
+		<b class="temp">Bienvenido al sistema de registro de equipos del laboratorio de informatica la Escuela Colombiana de Ingenieria Julio Garavito.</b>
+		<br></br>
+		Aqui podras:
+		<br></br>
+		<ol class="tes">
+			<li>Gestionar los equipos del laboratorio</li>
+			<li>Gestionar los elementos que poseen los equipos</li>
+			<li>Gestionar los laboratorios.</li>
+			<li>Registrar las modificaciones y novedades de los equipos y elementos.</li>
+		</ol>
+		<br></br>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div class="pers">
+		Algunos enlaces de interes:<br></br>
+		<ul>
+			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito.</a></li>
+			<li><a href="http://laboratorio.is.escuelaing.edu.co/" style="color:white">Laboratorio de informatica</a></li>
+		</ul>
+	</div>
+ </h:body>
+</html>
